@@ -1,0 +1,61 @@
+console.log("Primeiro desafio: Detetive");
+ 
+ console.log('')
+console.log("Na manhã seguinte à festa de reveillon na mansão dos Blossons, Jude a empregada encontrou, Jeredy, o filho dos patrões morto na piscina:")
+console.log('')
+console.log("Policial: - Srta Jude, você por trabalhar com os Blossons se enquadra entre as pessoas que serão interrogadas, faça o favor de responder apenas com Sim ou Não:")
+let soma = 0;
+
+console.log("")
+
+let q1 = prompt("Telefonou para a vítima?");
+
+if(q1 === "Sim")
+
+{soma = soma + 1} 
+
+else {soma = soma + 0}
+
+let q2 = prompt("Esteve no local do crime?");
+
+if(q2 == "Sim")
+
+{soma = soma +1} 
+
+else{soma = soma + 0}
+
+let q3 = prompt("Mora perto da vítima?");
+
+if(q3 == "Sim")
+
+{soma = soma +1} 
+
+else {soma = soma + 0}
+
+let q4 = prompt("Devia para a vítima?");
+
+if(q4 == "Sim")
+
+{soma = soma + 1}
+
+else{soma = soma + 0}
+
+let q5 = prompt("Já trabalhou com a vítima?");
+
+if(q5 == "Sim")
+ 
+{soma = soma + 1} 
+
+else{soma = soma + 0}
+
+if(soma < 2 )
+{console.log("Você é inocente.")}
+
+else if(soma == 2)
+{console.log("Você é considerada Suspeita.")}
+
+ else if(soma >= 3 && soma <= 4)
+{console.log("Você foi Cúmplice do crime.")}
+
+else if(soma == 5 )
+console.log("Voce é assassina")
