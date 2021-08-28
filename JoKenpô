@@ -1,0 +1,76 @@
+let user1 = 0;
+let user2 = 0;
+let ret = "Sim"
+while(ret == "Sim"){
+  let jog = prompt("Escolha quantas Jogadas")
+  console.log("")
+  while(jog > 0){
+  console.log(`${jog}º jogada`)
+  const user = prompt("Escolha Pedra, Papel ou Tesoura");
+
+  if(user === "Tesoura")
+  {console.log("Você escolheu Tesoura.")}
+
+  if(user === "Papel")
+  {console.log("Você escolheu Papel")}
+
+  if(user === "Pedra")
+  {console.log("Voce escolheu Pedra")}
+
+  let opc =["Pedra", "Papel", "Tesoura"];
+  console.log("");
+
+  let lista = opc.length;
+  let random = Math.floor(Math.random()*lista);
+  let result = opc[random];
+  console.log(`O computador escolheu ${opc[random]}`)
+
+  if(user === result){
+    console.log("Empatou")
+    user1 = 0; 
+    user2 = 0;
+  }
+  if(user == "Papel" && result == "Pedra")
+  {
+    console.log("Você ganhou")
+  user1 = +1;
+  }
+
+  if(user == "Pedra" && result == "Tesoura")
+  {
+    console.log("Você ganhou")
+  user1 = +1;
+  }
+
+
+  if(user == "Tesoura" && result == "Papel")
+  {console.log("Você ganhou")
+  user1 = user1 +1;
+  }
+
+
+  if(result == "Papel" && user == "Pedra")
+  {
+    console.log("O computador ganhou")
+  user2 =+1;
+  }
+  if(result == "Pedra" && user == "Tesoura")
+  {
+    console.log("O computador ganhou")
+    user2 = +1;
+    }
+  if(result == "Tesoura" && user == "Papel"){
+  console.log("O computador ganhou.")
+  user2 = +1;
+  }
+  jog--} 
+
+  if(user1 > user2){
+    console.log("O campeão foi você!!")
+  } else if( user1< user2){
+    console.log("Que pena não foi dessa vez.")
+  } else {
+    console.log("Empatou")
+  }
+ ret = prompt("Deseja jogar de novo?") 
+}
