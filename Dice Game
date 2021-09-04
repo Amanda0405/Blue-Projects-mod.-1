@@ -1,0 +1,48 @@
+const prompt = require('prompt-sync')();
+
+let jog = +prompt("Escolha quantos jogadores? ");
+let rod = +prompt("Quantas rodadas iremos jogar? ")
+
+const object = [];
+for(let i = 0; i < rod; i ++){
+for(let i = 0; i < jog; i++){
+var dado = Math.floor(Math.random()*(6)+1);
+var nome = prompt("Qual o nome do jogador? ")
+const jog1 = {};
+
+jog1.nome = nome;
+jog1.result = dado;
+console.log("Seu resultado foi: " + dado)
+jog1.vitorias = 0;
+
+object.push(jog1);
+ object.sort((a,b) => {
+   if(b.result < a.result){
+     return-1
+   }else{
+     return true
+   };
+
+ });
+}
+console.log("")
+console.log(`O vencedor da rodada foi ${object[0].nome} pois o numero tirado foi ${object[0].result}`);
+console.log("");
+object[0].vitorias = object[0].vitorias +1;
+for(let i = 0; i < object.length; i ++){
+  object[i].dado = Math.floor(Math.random()* 6)+1
+}
+
+object.sort((a,b) => {
+  if(b.vitorias < a.vitorias){
+    return-1
+  }else{
+    return true
+  };
+
+});
+}
+console.log("");
+console.log(`O grande cãmpeão foi ${object[0].nome} com ${object[0].vitorias}`);
+console.log("");
+console.log("Obrigada Por jogar, até uma proxima!!!);
