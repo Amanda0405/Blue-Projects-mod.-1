@@ -1,0 +1,109 @@
+const prompt = require('prompt-sync')();
+
+console.log(`Nesse jogo você seguirá por caminhos, que te levarão até lugares onde você achará um baú
+Fazer as escolhas certas ou te levara a vitória, ou ao fim do jogo
+
+Boa sorte e bom jogo`)
+
+
+
+
+
+
+
+class Personagem {
+    constructor(nome, moedas, vida){
+        this.nome = nome,
+        this.moedas = moedas,
+        this.vida = vida
+    }
+
+    perdervida(dano){
+        console.log(`Você perdeu ${dano} de vida!`)
+        this.vida -= dano;
+    }
+
+    perdermoeda(qntd){
+        console.log(`Você perdeu ${qntd} moedas!`)
+        this.moedas -= qntd;   
+    }
+}
+
+let personagem = new Personagem("Molina", 100, 3);
+
+var res = "sim"
+
+while(res === "sim"){
+console.log("");
+console.log(`Olá ${personagem.nome} sua aventura começa agora:
+Escolha por qual caminho deseja seguir: `)
+console.log("1. Labirinto das pedras\n ou 2. Rios tortuosos: ")
+
+var escolha = +prompt("Qual caminho seguir? ")
+
+function escolha1(){
+    if(escolha ===1){
+        return Opc1();
+    }else{
+        return Opc2()
+    }
+}; escolha1();
+
+function Opc1(){
+    console.log("");
+  console.log("Esse caminho contem muitas pedras perigosas encontre a passagem certa para sairmos daqui:" );
+  console.log("Digite 1 ou 2 para seguir em frente ");
+    console.log("");
+  var res1 = +prompt("Qual opção você escolhe? ");
+    if(res1 === 1){
+    console.log("Encontrou um bau... Vai abrir?");
+    let bau1 = prompt("Sim ou não:")
+        if(bau1 === "sim"){
+            console.log("Ele não tem coisas boas...");
+            personagem.perdermoeda(100);
+            personagem.perdervida(3);
+            return gameOver()
+        } 
+        else{
+            console.log("Vamos seguir em frente:")
+            return vitoria()
+        }
+    }
+}
+
+
+
+function Opc2(){
+console.log("");
+    console.log("Aqui as águas são muito fortes... mas a calmaria te espera logo a frente ");
+    console.log("Digite 1 ou 2 para seguir em frente: ");
+    console.log("");
+    var res2 = +prompt("Qual opção você escolhe? ")
+     
+      if(res2 === 1){
+     console.log("Olha lá um baú... Você vai abrir??? ");
+     let bau2 = prompt("Sim ou não: ")
+        if(bau2 === "sim"){
+            console.log("Que legal você encontrou o baú do tesouro")
+            return vitoria();
+        }else{
+            console.log("Você deixou pra trás um grande tesouro")
+            personagem.perdervida(3);
+            personagem.perdermoeda(100);
+            return gameOver()
+        }
+    }
+}
+
+function vitoria(){
+ return   console.log("Você conseguiu... Parabéns Ganhou o jogo!!!")
+}
+
+
+
+
+function gameOver(){
+ console.log("Que pena não foi dessa vez...")
+}
+ res = prompt("Deseja jogar de novo? ")
+}
